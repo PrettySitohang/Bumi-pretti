@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.pretti3tif.Pertemuan_5.FifthActivity
 import com.example.pretti3tif.databinding.ActivityMainBinding
 import com.example.pretti3tif.pertemuan_4.FourthActivity
 
@@ -35,10 +36,11 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("age", 25)
 
             startActivity(intent)
-
-            val nama = binding.textView4.text
-            Log.e("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
-
+        }
+        val nama = binding.textView4.text
+        binding.btnToFifth.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
         }
 
     }
