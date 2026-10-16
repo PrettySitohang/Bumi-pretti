@@ -1,4 +1,4 @@
-package com.example.pretti3tif.pertemuan_2
+package com.example.pretti3tif.Home.pertemuan_2
 
 fun main (){
     println ("haii rekan rekan")

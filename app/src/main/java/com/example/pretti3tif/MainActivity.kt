@@ -2,16 +2,15 @@ package com.example.pretti3tif
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.pretti3tif.Pertemuan_5.FifthActivity
+import com.example.pretti3tif.Home.Pertemuan_5.FifthActivity
 import com.example.pretti3tif.databinding.ActivityMainBinding
-import com.example.pretti3tif.pertemuan_4.FourthActivity
+import com.example.pretti3tif.Home.pertemuan_4.FourthActivity
 import androidx.appcompat.app.AlertDialog
+import com.example.pretti3tif.Home.pertemuan_7.SeventhActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -66,6 +65,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSixth.setOnClickListener {
             val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnToSeventh.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
             startActivity(intent)
         }
     }

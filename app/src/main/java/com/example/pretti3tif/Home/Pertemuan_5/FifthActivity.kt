@@ -1,9 +1,9 @@
-package com.example.pretti3tif.Pertemuan_5
+package com.example.pretti3tif.Home.Pertemuan_5
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,16 +11,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.pretti3tif.R
 import com.example.pretti3tif.databinding.ActivityFifthBinding
-import com.example.pretti3tif.databinding.ActivityMainBinding
-import com.example.pretti3tif.databinding.ActivityWebViewBinding
 
-class WebViewActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityWebViewBinding
+class FifthActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityFifthBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-        binding = ActivityWebViewBinding.inflate(layoutInflater)
+        binding = ActivityFifthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -30,38 +28,34 @@ class WebViewActivity : AppCompatActivity() {
         }
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Web PiCiErrr"
+            title = "Activity Fifth"
+            subtitle = "Ini adalah subtitle"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
+
+            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         }
-
-        binding.webView.webViewClient = WebViewClient()
-        binding.webView.settings.javaScriptEnabled = true
-        binding.webView.loadUrl("https://pcr.ac.id")
-
-        // Agar Toolbar hide/show saat scroll web
-        binding.webView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
-            if (scrollY > oldScrollY) {
-                binding.appBarLayout.setExpanded(false, true) // sembunyikan
-            } else if (scrollY < oldScrollY) {
-                binding.appBarLayout.setExpanded(true, true) // tampilkan
-            }
+        binding.btnWebView.setOnClickListener {
+            startActivity(Intent(this, WebViewActivity::class.java))
         }
-
     }
-
-    //Mengaktifkan tombol back pada toolbar
-    override fun onBackPressed() {
-        if (binding.webView.canGoBack()) {
-            binding.webView.goBack() // Kembali ke halaman sebelumnya
-        } else {
-            super.onBackPressed() // Keluar dari aplikasi
-        }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 onBackPressedDispatcher.onBackPressed()
+                true
+            }
+
+            R.id.action_search -> {
+                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.action_settings -> {
+                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
                 true
             }
             else -> super.onOptionsItemSelected(item)

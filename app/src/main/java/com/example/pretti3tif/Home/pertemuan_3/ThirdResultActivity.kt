@@ -1,4 +1,4 @@
-package com.example.pretti3tif.pertemuan_3
+package com.example.pretti3tif.Home.pertemuan_3
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
