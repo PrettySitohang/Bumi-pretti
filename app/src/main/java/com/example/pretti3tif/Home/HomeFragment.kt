@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pretti3tif.AuthActivity
 import com.example.pretti3tif.Home.Pertemuan_5.FifthActivity
+import com.example.pretti3tif.Home.pertemuan_10.TeenthActivity
 import com.example.pretti3tif.Home.pertemuan_4.FourthActivity
 import com.example.pretti3tif.Home.pertemuan_7.SeventhActivity
 import com.example.pretti3tif.R
@@ -76,6 +77,10 @@ class HomeFragment : Fragment() {
         }
         binding.btnToSeventh.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnToTeen.setOnClickListener {
+            val intent = Intent(requireContext(), TeenthActivity::class.java)
             startActivity(intent)
         }
     }
